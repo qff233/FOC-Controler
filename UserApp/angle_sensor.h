@@ -9,26 +9,24 @@ enum class Direction {
     CCW = -1
 };
 
-struct AngleResult {
+struct LapAngle {
     int32_t lap_count;
-    uint32_t angle;
+    float angle;
 };
 
 class AngleSensor {
 public:
-    explicit AngleSensor(int32_t max_raw_angle);
     virtual ~AngleSensor() = default;
 
-    virtual uint32_t update_raw() = 0;
     void update();
 
-    AngleResult get_angle();
+    LapAngle get_angle();
 protected:
-    int32_t m_lap_count = 0;
-    int32_t m_last_angle = 0;
-    int32_t m_current_angle = 0;
+    virtual float update_raw() = 0;
 private:
-    int32_t m_half_max_raw_angle;
+    int32_t m_lap_count = 0;
+    float m_last_angle = 0;
+    float m_current_angle = 0;
 };
 
 

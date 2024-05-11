@@ -54,6 +54,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 int Main();
+void adc_interrupt(ADC_HandleTypeDef *hadc);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
