@@ -13,7 +13,7 @@
 // lolremez --float --degree 5 --range "1e-50:pi*pi"
 // "(sin(sqrt(x))-sqrt(x))/(x*sqrt(x))" "1/(x*sqrt(x))"
 // Estimated max error: 1.455468e-9
-float f1(float x) {
+inline float f1(float x) {
     float u = 1.3528548e-10f;
     u = u * x + -2.4703144e-08f;
     u = u * x + 2.7532926e-06f;
@@ -25,7 +25,7 @@ float f1(float x) {
 // lolremez --float --degree 5 --range "1e-50:pi*pi" "(cos(sqrt(x))-1)/x"
 // "1/x"
 // Estimated max error: 1.1846383e-8
-float f2(float x) {
+inline float f2(float x) {
     float u = 1.7290616e-09f;
     u = u * x + -2.7093486e-07f;
     u = u * x + 2.4771643e-05f;
@@ -34,7 +34,7 @@ float f2(float x) {
     return u * x + -0.49999991f;
 }
 
-float fast_sin(float x) {
+inline float fast_sin(float x) {
     // si = (int)(x / pi)
     int si = (int) (x * 0.31830988f);
     x = x - (float) si * F_PI;
@@ -44,7 +44,7 @@ float fast_sin(float x) {
     return x + x * x * x * f1(x * x);
 }
 
-float fast_cos(float x) {
+inline float fast_cos(float x) {
     // si = (int)(x / pi)
     int si = (int) (x * 0.31830988f);
     x = x - (float) si * F_PI;
@@ -54,7 +54,7 @@ float fast_cos(float x) {
     return 1.0f + x * x * f2(x * x);
 }
 
-void fast_sin_cos(float x, float *sin_x, float *cos_x) {
+inline void fast_sin_cos(float x, float *sin_x, float *cos_x) {
     // si = (int)(x / pi)
     int si = (int) (x * 0.31830988f);
     x = x - (float) si * F_PI;

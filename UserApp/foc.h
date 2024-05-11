@@ -28,11 +28,7 @@ struct Pwm {
     uint32_t w;
 };
 
-SinCos sincos(float x) {
-    SinCos result{};
-    fast_sin_cos(x, &result.sinx, &result.cosx);
-    return result;
-}
+SinCos sincos(float x);
 
 Pwm svpwm(const Dq &dq, const SinCos &sincos);
 Dq park(const Uvw &uvw, const SinCos &sincos);

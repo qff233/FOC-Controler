@@ -39,3 +39,7 @@ float Pid::operator()(float error) {
 
     return output;
 }
+
+float Pid::get_last_output() const {
+    return m_last_output;
+}

@@ -5,6 +5,12 @@
 #define SQRT3_BY_2 (SQRT3 / 2.0f)
 #define SQRT3_BY_3 (SQRT3 / 3.0f)
 
+SinCos sincos(float x) {
+    SinCos result{};
+    fast_sin_cos(x, &result.sinx, &result.cosx);
+    return result;
+}
+
 Pwm svpwm(const Dq &dq, const SinCos &sincos) {
     auto [d, q] = dq;
     auto [sin, cos] = sincos;

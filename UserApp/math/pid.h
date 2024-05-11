@@ -8,6 +8,7 @@ public:
         float integral_limit = 0.0f, float output_limit = 0.0f);
 
     float operator()(float error);
+    float get_last_output() const;
 public:
     float p;
     float i;
